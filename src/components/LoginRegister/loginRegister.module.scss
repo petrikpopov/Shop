@@ -1,0 +1,90 @@
+.wrapperForm {
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: rgb(245, 245, 245);
+    border-radius: 30px;
+    width: 550px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    &__typeOperationClose {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        &__typeOperation {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            
+            &__signIn,
+            &__signUp {
+                font-weight: 700;
+                font-size: 24px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__wrapperIputs {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &__email,
+        &__login,
+        &__password {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            input {
+                padding: 6px;
+                border: none;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    &__btn {
+        border: none;
+        outline: none;
+        padding: 10px;
+        background-color: rgb(16, 121, 192);
+        font-size: 15px;
+        font-weight: 500;
+        color: white;
+        margin-top: 20px;
+        border-radius: 20px;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: rgb(14, 100, 157);
+            transition: 0.3s;
+        }
+    }
+
+    .btn-close {
+        position: absolute;
+        right: 0;
+    }
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.activeButton {
+    color: rgb(16, 121, 192);
+}
