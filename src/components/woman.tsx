@@ -7,6 +7,7 @@ import WomanItem from "./cardWomanItem";
 import style from './cardItem.module.scss'
 import { Riple } from "react-loading-indicators";
 import { Outlet } from "react-router-dom";
+import axios from "axios";
 
 interface IRating {
     rate:number,
@@ -27,12 +28,10 @@ const WomanPage = () => {
     const [womanClothes, setWomanClothes] = useState<IWomanClothes[]>([]);
     const [loading, isLoading] = useState(true);
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products/category/women's%20clothing")
-        .then(response => response.json())
-        .then((data:IWomanClothes[]) => {
-            setWomanClothes(data);
+        axios.get<IWomanClothes[]>("https://fakestoreapi.com/products/category/women's%20clothing").then(response=>{
+            setWomanClothes(response.data);
             isLoading(false);
-        });
+        })
     },[])
 
     if(loading) {
@@ -45,7 +44,7 @@ const WomanPage = () => {
             <main>
                <div className={style.cardItemWrapper}>
                     {womanClothes.map((item, key) => (
-                        <WomanItem key={key} image={item.image} title={item.title} description={item.description} price={item.price}></WomanItem>
+                        <WomanItem key={key} id={item.id} image={item.image} category={item.category} title={item.title} description={item.description} price={item.price}></WomanItem>
                     ))}
                </div>
                <Outlet/>

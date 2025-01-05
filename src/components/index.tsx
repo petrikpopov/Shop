@@ -6,6 +6,7 @@ import { Riple } from "react-loading-indicators";
 import loader from './loader.module.scss';
 import Footer from "./Footer/footer";
 import { BasketProvider } from "../BasketContext";
+import axios from "axios";
 
 interface Product {
     id: number;
@@ -25,12 +26,10 @@ const IndexPage = () => {
     const [loading, isLoading] = useState(true);
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-        .then(response => response.json())
-        .then((data: Product[]) => {
-            setResult(data);
+        axios.get<Product[]>('https://fakestoreapi.com/products').then(response => {
+            setResult(response.data);
             isLoading(false);
-        });
+        })
     },[]);
 
     if(loading) {
