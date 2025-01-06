@@ -14,8 +14,6 @@ interface ICard {
 
 const CardItem = ({id,image,title, category, description, price}:ICard) => {
 
-    // const {addToBasket} = useBasket();
-
     const [isExpander, setIsExpander] = useState(false);
 
     const showTogleDescription = () => {

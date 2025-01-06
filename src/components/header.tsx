@@ -5,8 +5,6 @@ import Basket from './Basket/basket';
 import { useState } from 'react';
 import WomanMenu from './HeaderBlockMenu/MenuForWoman/womanMenu';
 import ManMenu from './HeaderBlockMenu/MenuForMan/manMenu';
-import ChildrenMenu from './HeaderBlockMenu/ChildrenMenu/childrenMenu';
-
 
 const Header = () => {
     const [openBasket, isOpenBasket] = useState(false);
@@ -55,10 +53,10 @@ const Header = () => {
                                 </>)
                             }
                         </li>
-                        <li onMouseEnter={() => onHoverItemShow('children')} onMouseLeave={onHoverItemHiden} className={style.listItem}><Link to='/children'>Сhildren</Link>
+                        <li onMouseEnter={() => onHoverItemShow('electronics')} onMouseLeave={onHoverItemHiden} className={style.listItem}><Link to='/electronics'>Jewelery</Link>
                             {
-                                hoverForMenu === 'children' && (<>
-                                    <ChildrenMenu></ChildrenMenu>
+                                hoverForMenu === 'electronics' && (<>
+                                   
                                 </>)
                             }
                         </li>

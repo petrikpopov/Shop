@@ -7,6 +7,7 @@ import loader from './loader.module.scss';
 import Footer from "./Footer/footer";
 import { BasketProvider } from "../BasketContext";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 interface Product {
     id: number;
@@ -43,7 +44,7 @@ const IndexPage = () => {
             <main>
                 <div className={style.cardItemWrapper}>
                     {result.map((el, key) => (
-                        <CardItem key={key} id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price}></CardItem>
+                        <Link to={`/card/${el.title}`} state={{el}}><CardItem key={key} id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price}></CardItem></Link>
                     ))}
                 </div>
             </main>

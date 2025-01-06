@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import WomanItem from "./cardWomanItem";
 import style from './cardItem.module.scss'
 import { Riple } from "react-loading-indicators";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import axios from "axios";
 
 interface IRating {
@@ -43,8 +43,8 @@ const WomanPage = () => {
             <Header></Header>
             <main>
                <div className={style.cardItemWrapper}>
-                    {womanClothes.map((item, key) => (
-                        <WomanItem key={key} id={item.id} image={item.image} category={item.category} title={item.title} description={item.description} price={item.price}></WomanItem>
+                    {womanClothes.map((el, key) => (
+                        <Link to={`/card/${el.title}`} state={{el}}><WomanItem key={key} id={el.id} image={el.image} category={el.category} title={el.title} description={el.description} price={el.price}></WomanItem></Link>
                     ))}
                </div>
                <Outlet/>

@@ -17,6 +17,7 @@ button {
     flex-direction: column;
     gap: 10px;
     height: 100%;
+    transition: .3s;
 
     &__image {
         width: 269px;
@@ -76,5 +77,10 @@ button {
         transition: .3s;
         background: lightgray;
       }
+    }
+   
+    &:hover {
+        transition: .3s;
+        transform: scale(1.05);
     }
 }

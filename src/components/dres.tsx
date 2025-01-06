@@ -1,16 +1,19 @@
 import { useParams } from "react-router-dom";
+import Header from "./header";
+import { BasketProvider } from "../BasketContext";
+import Footer from "./Footer/footer";
 
 const DresPage = () => {
     const { category } = useParams();
-
-    const decodedCategory = decodeURIComponent(category!); // Декодируем, если нужно
-
-    console.log(decodedCategory); // Выводим декодированное значение
-
+   
     return (
-        <div>
-            <h1>Это страница {decodedCategory}!</h1>
-        </div>
+        <BasketProvider>
+            <Header></Header>
+            <main>
+                <h1>Это страница {category}!</h1>
+            </main>
+            <Footer></Footer>
+        </BasketProvider>
     );
 };
 
