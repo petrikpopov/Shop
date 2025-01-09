@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import style from './cardItem.module.scss';
-import AddTovar from './buttonAddToBasket';
 
 interface IWomman {
-    id:number
     image:string,
     title:string,
-    category:string;
     description:string,
     price:number
 }
 
-const WomanItem = ({id, image, title, category, description, price}:IWomman) => {
+const WomanItem = ({image, title, description, price}:IWomman) => {
     const [isExpander, setIsExpander] = useState(false);
 
     const showTogleDescription = () => {
@@ -36,7 +33,6 @@ const WomanItem = ({id, image, title, category, description, price}:IWomman) => 
             }
             <div className={style.cardItem__wrapperPriceBy}>
                 <span className={style.cardItem__price}>Price: {price}$</span>
-                <AddTovar id={id} image={image} title={title} category={category} description={description} price={price}></AddTovar>
             </div>
         </div>
     </>)

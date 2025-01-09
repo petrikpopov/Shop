@@ -44,7 +44,7 @@ const WomanPage = () => {
             <main>
                <div className={style.cardItemWrapper}>
                     {womanClothes.map((el, key) => (
-                        <Link to={`/card/${el.title}`} state={{el}}><WomanItem key={key} id={el.id} image={el.image} category={el.category} title={el.title} description={el.description} price={el.price}></WomanItem></Link>
+                        <Link to={`/card/${el.title}`} state={{el}}><WomanItem key={key} image={el.image} title={el.title} description={el.description} price={el.price}></WomanItem></Link>
                     ))}
                </div>
                <Outlet/>

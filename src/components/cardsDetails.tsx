@@ -3,6 +3,7 @@ import { BasketProvider } from "../BasketContext";
 import Header from "./header";
 import Footer from "./Footer/footer";
 import GoToBack from "./goToBack";
+import AddTovar from "./buttonAddToBasket";
 
 const CardsDetail = () => {
 
@@ -22,6 +23,7 @@ const CardsDetail = () => {
                     <span>Price: ${el.price}</span>
                     <span>Rating: {el.rating.rate || ''} ({el.rating.count || ''} reviews)</span>
                 </div>
+                <AddTovar id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price} />
             </div>
             <Footer></Footer>
         </BasketProvider>

@@ -47,7 +47,7 @@ const ManPage = () => {
                     {
                         data.map((el, key) => (
                             <Link key={key} to={`/card/${el.title}`} state={{el}}>
-                                <ManItem id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price}></ManItem>
+                                <ManItem image={el.image} title={el.title} description={el.description} price={el.price}></ManItem>
                             </Link>
                         ))
                     }

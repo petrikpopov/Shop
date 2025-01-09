@@ -1,7 +1,5 @@
 import { useState } from 'react';
-// import { useBasket } from '../BasketContext';
 import style from './cardItem.module.scss'
-import AddTovar from './buttonAddToBasket';
 
 interface ICard {
     id:number
@@ -12,7 +10,7 @@ interface ICard {
     price:number;
 }
 
-const CardItem = ({id,image,title, category, description, price}:ICard) => {
+const CardItem = ({image,title, category, description, price}:ICard) => {
 
     const [isExpander, setIsExpander] = useState(false);
 
@@ -43,7 +41,6 @@ const CardItem = ({id,image,title, category, description, price}:ICard) => {
             </span>
             <div className={style.cardItem__wrapperPriceBy}>
                 <span className={style.cardItem__price}>Price: {price}$</span>
-                <AddTovar id={id} image={image} title={title} category={category} description={description} price={price}></AddTovar>
             </div>
         </div>
     </>)
