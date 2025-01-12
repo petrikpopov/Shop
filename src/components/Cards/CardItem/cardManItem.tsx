@@ -1,20 +1,22 @@
 import { useState } from 'react';
-import style from './cardItem.module.scss';
+import style from './cardItem.module.scss'
 
-interface IWomman {
+interface IMan {
     image:string,
     title:string,
     description:string,
     price:number
 }
 
-const WomanItem = ({image, title, description, price}:IWomman) => {
+const ManItem = ({image, title, description, price}:IMan) => {
     const [isExpander, setIsExpander] = useState(false);
 
-    const showTogleDescription = () => {
+    const showTogleDescription = (e:React.MouseEvent) => {
+        e.preventDefault()
+        e.stopPropagation();
         setIsExpander(!isExpander);
     }
-
+    
     return (<>
         <div className={style.cardItem}>
             <img className={style.cardItem__image} src={image} alt={title} />
@@ -38,4 +40,4 @@ const WomanItem = ({image, title, description, price}:IWomman) => {
     </>)
 }
 
-export default WomanItem;
+export default ManItem;

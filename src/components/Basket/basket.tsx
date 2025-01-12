@@ -1,6 +1,6 @@
 
 import style from './basket.module.scss';
-import { useBasket } from '../../BasketContext';
+import { useBasket } from '../Context/BasketContext';
 
 interface IBasket {
     isState: boolean;

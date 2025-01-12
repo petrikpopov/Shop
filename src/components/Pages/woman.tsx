@@ -1,10 +1,10 @@
-import Header from "./header";
-import loader from './loader.module.scss';
-import Footer from "./Footer/footer";
-import { BasketProvider } from "../BasketContext";
+import Header from '../Header/header';
+import loader from '../Loader/loader.module.scss'
+import Footer from '../Footer/footer';
+import { BasketProvider } from '../Context/BasketContext';
 import { useEffect, useState } from "react";
-import WomanItem from "./cardWomanItem";
-import style from './cardItem.module.scss'
+import WomanItem from '../Cards/CardItem/cardWomanItem';
+import style from '../Cards/CardItem/cardItem.module.scss'
 import { Riple } from "react-loading-indicators";
 import { Link, Outlet } from "react-router-dom";
 import axios from "axios";

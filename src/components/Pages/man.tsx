@@ -1,13 +1,13 @@
-import Header from "./header";
-import Footer from "./Footer/footer";
-import { BasketProvider } from "../BasketContext";
+import Header from '../Header/header';
+import Footer from '../Footer/footer';
+import { BasketProvider } from '../Context/BasketContext';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Riple } from "react-loading-indicators";
-import load from './loader.module.scss';
+import load from '../Loader/loader.module.scss'
 import { Link } from "react-router-dom";
-import ManItem from "./cardManItem";
-import style from './cardItem.module.scss';
+import ManItem from '../Cards/CardItem/cardManItem';
+import style from '../Cards/CardItem/cardItem.module.scss'
 
 interface IRating {
     rate:number,

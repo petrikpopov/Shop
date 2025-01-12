@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import style from './cardItem.module.scss';
-import AddTovar from './buttonAddToBasket';
+import AddTovar from '../../AddToBasket/buttonAddToBasket';
 
 interface IElectronic {
     id:number

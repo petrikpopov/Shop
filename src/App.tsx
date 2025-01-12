@@ -1,11 +1,11 @@
 import './App.css';
-import IndexPage from './components';
-import WomanPage from './components/woman';
-import ManPage from './components/man';
-import DresPage from './components/dres';
+import IndexPage from './components/Pages';
+import WomanPage from './components/Pages/woman';
+import ManPage from './components/Pages/man';
+import DresPage from './components/Pages/dres';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CardsDetail from './components/cardsDetails';
-import ElectronicsPage from './components/electronics';
+import CardsDetail from './components/Cards/cardsDetails';
+import ElectronicsPage from './components/Pages/electronics';
 function App() {
     return (
         <div className='container'>

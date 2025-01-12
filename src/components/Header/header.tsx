@@ -1,10 +1,12 @@
-import style from '../styleHeader/header.module.scss';
+import style from './header.module.scss';
 import { Link } from "react-router-dom";
-import LoginRegistre from './LoginRegister/login-registerForm';
-import Basket from './Basket/basket';
+import LoginRegistre from '../../features/Auth/login-registerForm';
+import Basket from '../Basket/basket';
 import { useState } from 'react';
-import WomanMenu from './HeaderBlockMenu/MenuForWoman/womanMenu';
-import ManMenu from './HeaderBlockMenu/MenuForMan/manMenu';
+import WomanMenu from '../../features/Products/womanMenu';
+import ManMenu from '../../features/Products/manMenu';
+import profilIcon from '../../icons/profilIcon.svg';
+import shopIcon from '../../icons/shoppingСart.svg';
 
 const Header = () => {
     const [openBasket, isOpenBasket] = useState(false);
@@ -63,11 +65,11 @@ const Header = () => {
                     </ul>
                     <div className={style.wrapperRegisterLogin}>
                         <span className={style.showCounter}></span>
-                        <img onClick={() => OpenBasket()} className={style.wrapperRegisterLogin__shoppingСart} src="src/icons/shoppingСart.svg" alt="shoppingСart-icon" />
+                        <img onClick={() => OpenBasket()} className={style.wrapperRegisterLogin__shoppingСart} src={shopIcon} alt="shoppingСart-icon" />
                         {
                             !onLogin ? (<>
                                 <button onClick={() => isOpenForm(!openForm)} type="button" className="btn btn-primary profileButton" data-toggle="modal" data-target="#exampleModalCenter">
-                                    <img className={style.wrapperRegisterLogin__profileIcon} src="src/icons/profilIcon.svg" alt="profilIcon" />
+                                    <img className={style.wrapperRegisterLogin__profileIcon} src={profilIcon} alt="profilIcon" />
                                     Profile
                                 </button>
                             </>) : (<>

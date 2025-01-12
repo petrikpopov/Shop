@@ -14,7 +14,9 @@ const CardItem = ({image,title, category, description, price}:ICard) => {
 
     const [isExpander, setIsExpander] = useState(false);
 
-    const showTogleDescription = () => {
+    const showTogleDescription = (e:React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
         setIsExpander(!isExpander);
     }
 

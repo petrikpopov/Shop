@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import style from '../dropDownMenuStyle/dropDownMenu.module.scss'
+import style from './Categories.module.scss'
 
 interface IManCategories {
     categories: string[]

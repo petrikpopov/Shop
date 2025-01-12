@@ -1,0 +1,17 @@
+.wrapperDetails {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    
+    &__imageWrapper {
+        img {
+            width: 500px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

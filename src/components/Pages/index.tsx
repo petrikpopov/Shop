@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import CardItem from "./cardIndexItem";
-import Header from "./header"
-import style from './cardItem.module.scss';
+import CardItem from "../Cards/CardItem/cardIndexItem";
+import Header from "../Header/header";
+import style from '../Cards/CardItem/cardItem.module.scss'
 import { Riple } from "react-loading-indicators";
-import loader from './loader.module.scss';
-import Footer from "./Footer/footer";
-import { BasketProvider } from "../BasketContext";
+import loader from '../Loader/loader.module.scss';
+import Footer from "../Footer/footer";
+import { BasketProvider } from "../Context/BasketContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -44,7 +44,7 @@ const IndexPage = () => {
             <main>
                 <div className={style.cardItemWrapper}>
                     {result.map((el, key) => (
-                        <Link to={`/card/${el.title}`} state={{el}}><CardItem key={key} id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price}></CardItem></Link>
+                        <Link key={key} to={`/card/${el.title}`} state={{el}}><CardItem key={key} id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price}></CardItem></Link>
                     ))}
                 </div>
             </main>
