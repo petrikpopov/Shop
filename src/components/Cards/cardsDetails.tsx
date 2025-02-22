@@ -6,7 +6,7 @@ import GoToBack from "../goToBack";
 import AddTovar from "../AddToBasket/buttonAddToBasket";
 import style from './cardsDetails.module.scss';
 
-const CardsDetail = () => {
+const CardsDetails = () => {
 
     const location = useLocation();
     const { el } = location.state;
@@ -17,8 +17,8 @@ const CardsDetail = () => {
             <div>
                 <GoToBack></GoToBack>
                 <div className={style.wrapperDetails}>
-                    <div className={style.wrapperDetails__imageWrapper}><img src={el.image} alt={el.title}/></div>
-                    <div className={style.wrapperDetails__content}>
+                    <div className={style.image}><img src={el.image} alt={el.title}/></div>
+                    <div className={style.content}>
                         <h3>{el.title}</h3>
                         <p>{el.description}</p>
                         <p>{el.category}</p>
@@ -33,4 +33,4 @@ const CardsDetail = () => {
     );
 };
 
-export default CardsDetail;
+export default CardsDetails;

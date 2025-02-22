@@ -9,9 +9,9 @@ const DresPage = () => {
     return (
         <BasketProvider>
             <Header></Header>
-            <main>
-                <h1>Это страница {category}!</h1>
-            </main>
+                <main>
+                    <h1>Это страница {category}!</h1>
+                </main>
             <Footer></Footer>
         </BasketProvider>
     );

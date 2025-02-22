@@ -1,7 +1,7 @@
 import style from './addToBasketButton.module.scss'
-import { useBasket } from '../Context/BasketContext';
+import { useBasketContext } from '../Context/BasketContext';
 
-interface ICard {
+type cardProps = {
     id:number
     image:string;
     title:string;
@@ -10,13 +10,11 @@ interface ICard {
     price:number;
 }
 
-const AddTovar = ({id, image, title, category, description, price}:ICard) => {
+const AddToBasketButton = ({id, image, title, category, description, price}:cardProps) => {
 
-    const {addToBasket} = useBasket();
+    const {addToBasket} = useBasketContext();
 
-    return (<>
-        <button onClick={() => addToBasket({id,image,title, category, description, price})} className={style.buttonBY}>By</button>
-    </>)
+    return (<button onClick={() => addToBasket({id,image,title, category, description, price})} className={style.buttonBY}>By</button>)
 }
 
-export default AddTovar;
+export default AddToBasketButton;

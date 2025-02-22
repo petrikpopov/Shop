@@ -1,34 +1,35 @@
 import { Link } from 'react-router-dom'
 import style from './Categories.module.scss'
 
-interface IManCategories {
+type ManMenuCategories = {
     categories: string[]
 }
 
+const data:ManMenuCategories = {
+    categories: [
+        "Костюмы",
+        "Рубашки",
+        "Джинсы",
+        "Куртки",
+        "Футболки",
+        "Обувь",
+        "Свитера",
+        "Спортивная одежда",
+        "Часы и аксессуары",
+        "Рюкзаки"
+    ]
+}
+
 const ManMenu = () => {
-    const data:IManCategories = {
-        categories: [
-            "Костюмы",
-            "Рубашки",
-            "Джинсы",
-            "Куртки",
-            "Футболки",
-            "Обувь",
-            "Свитера",
-            "Спортивная одежда",
-            "Часы и аксессуары",
-            "Рюкзаки"
-        ]
-    }
-    return (<>
+    return (
        <div className={style.wrappperDdropDownBlock}>
         {
             data.categories.map((el, key) => (
-                <Link className={style.wrappperDdropDownBlock__item} to={el}><span key={key}>{el}</span></Link>
+                <Link className={style.item} to={el}><span key={key}>{el}</span></Link>
             ))
         }
        </div>
-    </>)
+    )
 }
 
 export default ManMenu;

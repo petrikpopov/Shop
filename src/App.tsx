@@ -6,6 +6,7 @@ import DresPage from './components/Pages/dres';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CardsDetail from './components/Cards/cardsDetails';
 import ElectronicsPage from './components/Pages/electronics';
+
 function App() {
     return (
         <div className='container'>

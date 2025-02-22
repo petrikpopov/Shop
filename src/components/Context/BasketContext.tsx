@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 interface ICard {
@@ -18,10 +18,10 @@ interface BasketContextType {
 
 const BasketContext = createContext<BasketContextType | undefined>(undefined);
 
-export const useBasket = () => {
+export const useBasketContext = () => {
     const context = useContext(BasketContext);
     if (!context) {
-        throw new Error('useBasket must be used within a BasketProvider');
+        throw new Error('useBasketContext must be used within a BasketProvider');
     }
     return context;
 };

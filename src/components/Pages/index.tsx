@@ -2,14 +2,13 @@ import { useEffect, useState } from "react"
 import CardItem from "../Cards/CardItem/cardIndexItem";
 import Header from "../Header/header";
 import style from '../Cards/CardItem/cardItem.module.scss'
-import { Riple } from "react-loading-indicators";
-import loader from '../Loader/loader.module.scss';
 import Footer from "../Footer/footer";
 import { BasketProvider } from "../Context/BasketContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loader from "../Loader/loader";
 
-interface Product {
+type ProductData = {
     id: number;
     title: string;
     price: number;
@@ -23,34 +22,37 @@ interface Product {
 }
 
 const IndexPage = () => {
-    const [result, setResult] = useState<Product[]>([]);
+    const [result, setResult] = useState<ProductData[]>([]);
     const [loading, isLoading] = useState(true);
 
     useEffect(() => {
-        axios.get<Product[]>('https://fakestoreapi.com/products').then(response => {
+        axios.get<ProductData[]>('https://fakestoreapi.com/products').then(response => {
             setResult(response.data);
             isLoading(false);
         })
     },[]);
 
     if(loading) {
-        return <div className={loader.wrapperLoader}><Riple color="#32cd32" size="medium" text="Loading" textColor="" style={{position:'absolute', top: '50%', left:'50%', transform: 'translate(-50%, -50%)' }}/></div>
+        return (
+            <Loader/>
+        )
     }
 
-    console.log(result);
-    return (<>
+    return (
         <BasketProvider>
             <Header></Header>
             <main>
                 <div className={style.cardItemWrapper}>
-                    {result.map((el, key) => (
-                        <Link key={key} to={`/card/${el.title}`} state={{el}}><CardItem key={key} id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price}></CardItem></Link>
+                    {result.map((el) => (
+                        <Link key={el.id} to={`/card/${el.title}`} state={{el}}>
+                            <CardItem id={el.id} image={el.image} title={el.title} category={el.category} description={el.description} price={el.price}></CardItem>
+                        </Link>
                     ))}
                 </div>
             </main>
             <Footer></Footer>
         </BasketProvider>
-    </>)
+    )
 }
 
 export default IndexPage

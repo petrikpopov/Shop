@@ -2,7 +2,7 @@ import { useState } from 'react';
 import style from './cardItem.module.scss';
 import AddTovar from '../../AddToBasket/buttonAddToBasket';
 
-interface IElectronic {
+type ElectronicsProductCardProps = {
     id:number
     image:string,
     title:string,
@@ -11,7 +11,7 @@ interface IElectronic {
     price:number
 }
 
-const ElectronicsItem = ({id, image, title, category, description, price}:IElectronic) => {
+const ElectronicsProductCard = ({id, image, title, category, description, price}:ElectronicsProductCardProps) => {
 
     const [isExpander, setIsExpander] = useState(false);
 
@@ -19,28 +19,28 @@ const ElectronicsItem = ({id, image, title, category, description, price}:IElect
         setIsExpander(!isExpander);
     }
 
-    return (<>
+    return (
         <div className={style.cardItem}>
-            <img className={style.cardItem__image} src={image} alt={title} />
-            <p className={style.cardItem__title}>{title}</p>
+            <img className={style.image} src={image} alt={title} />
+            <p className={style.title}>{title}</p>
             {
                isExpander ? description : description.length >= 120 ? `${description.slice(0, 120)}...` : description
             }
             {
                 description.length >= 120 && (<>
-                    <button className={style.cardItem__togleDescription} onClick={showTogleDescription}>
+                    <button className={style.togleDescription} onClick={showTogleDescription}>
                         {
                             isExpander ? 'Скрыть' : 'Показать'
                         }
                     </button>
                 </>)
             }
-            <div className={style.cardItem__wrapperPriceBy}>
-                <span className={style.cardItem__price}>Price: {price}$</span>
+            <div className={style.wrapperPriceBy}>
+                <span className={style.price}>Price: {price}$</span>
                 <AddTovar id={id} image={image} title={title} category={category} description={description} price={price}></AddTovar>
             </div>
         </div>
-    </>)
+    )
 }
 
-export default ElectronicsItem;
+export default ElectronicsProductCard;

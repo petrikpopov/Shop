@@ -6,27 +6,19 @@ import { useState } from 'react';
 import WomanMenu from '../../features/Products/womanMenu';
 import ManMenu from '../../features/Products/manMenu';
 import profilIcon from '../../icons/profilIcon.svg';
-import shopIcon from '../../icons/shoppingСart.svg';
+import shopIcon from '../../icons/shoppingСart.svg'
 
 const Header = () => {
-    const [openBasket, isOpenBasket] = useState(false);
+    const [isOpenBasket, setOpenBasket] = useState(false);
+    const OpenBasket = () => setOpenBasket(prev => !prev)
 
-    const OpenBasket = () => isOpenBasket(!openBasket)
+    const [isOpenForm, setOpenForm] = useState(false);
+    const OnCLoseForm = () => setOpenForm(false);
 
-    const [openForm, isOpenForm] = useState(false);
-
-    const OnCLoseForm = () => isOpenForm(false);
-
-    // const [openFiletr, isOpenFilter] = useState(false)
-
-    // const OpenFilter = () => isOpenFilter(!openFiletr);
-
-    const [onLogin, setOnLogin] = useState(false);
-
+    const [isOnLogin, setOnLogin] = useState(false);
     const handleLogout = () => setOnLogin(true);
 
-    const [hoverForMenu, setHoverForMenu] = useState('');
-
+    const [isHoverForMenu, setHoverForMenu] = useState('');
     const onHoverItemShow = (menuType:string) => {
         setHoverForMenu(menuType);
     }
@@ -36,28 +28,28 @@ const Header = () => {
     }
 
     return (<>
-        <header className={style.myHeader}>
+        <header className={style.header}>
             <div className={style.container}>
-                <div className={style.wrapperContentHeader}>
+                <div className={style.content}>
                     <div className={style.logo}><Link to='/'>MyHouse</Link></div>
                     <ul className={style.listMenu}>
                         <li onMouseEnter={() => onHoverItemShow('woman')} onMouseLeave={onHoverItemHiden} className={style.listItem}><Link to='/woman'>Woman</Link>
                             {
-                                hoverForMenu === 'woman' && (<>
+                                isHoverForMenu === 'woman' && (<>
                                     <WomanMenu></WomanMenu>
                                 </>)
                             }
                         </li>
                         <li onMouseEnter={() => onHoverItemShow('man')} onMouseLeave={onHoverItemHiden} className={style.listItem}><Link to='/man'>Man</Link>
                             {
-                                hoverForMenu ===  'man' && (<>
+                                isHoverForMenu ===  'man' && (<>
                                     <ManMenu></ManMenu>
                                 </>)
                             }
                         </li>
                         <li onMouseEnter={() => onHoverItemShow('electronics')} onMouseLeave={onHoverItemHiden} className={style.listItem}><Link to='/electronics'>Jewelery</Link>
                             {
-                                hoverForMenu === 'electronics' && (<>
+                                isHoverForMenu === 'electronics' && (<>
                                    
                                 </>)
                             }
@@ -65,11 +57,11 @@ const Header = () => {
                     </ul>
                     <div className={style.wrapperRegisterLogin}>
                         <span className={style.showCounter}></span>
-                        <img onClick={() => OpenBasket()} className={style.wrapperRegisterLogin__shoppingСart} src={shopIcon} alt="shoppingСart-icon" />
+                        <img onClick={() => OpenBasket()} className={style.shoppingСard} src={shopIcon} alt="shoppingСard-icon" />
                         {
-                            !onLogin ? (<>
-                                <button onClick={() => isOpenForm(!openForm)} type="button" className="btn btn-primary profileButton" data-toggle="modal" data-target="#exampleModalCenter">
-                                    <img className={style.wrapperRegisterLogin__profileIcon} src={profilIcon} alt="profilIcon" />
+                            !isOnLogin ? (<>
+                                <button onClick={() => setOpenForm(!isOpenForm)} type="button" className="btn btn-primary profileButton" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <img className={style.profileIcon} src={profilIcon} alt="profilIcon" />
                                     Profile
                                 </button>
                             </>) : (<>
@@ -79,20 +71,9 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <Basket isState={openBasket} onOpen={OpenBasket}></Basket>
+            <Basket isState={isOpenBasket} onOpen={OpenBasket}></Basket>
         </header>
-        {/* <button onClick={OpenFilter}>
-            {
-                !openFiletr ? 'Open filter' : 'Close filter'
-            }
-        </button>
-        <br />
-        {
-            openFiletr && (<>
-                <input type="range" />
-            </>)
-        } */}
-        <LoginRegistre stateForm={openForm} isLoginSeccuses={handleLogout} onClose={OnCLoseForm}/>
+        <LoginRegistre stateForm={isOpenForm} isLoginSeccuses={handleLogout} onClose={OnCLoseForm}/>
     </>)
 }
 

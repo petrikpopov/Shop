@@ -1,31 +1,31 @@
 
 import style from './basket.module.scss';
-import { useBasket } from '../Context/BasketContext';
+import { useBasketContext } from '../Context/BasketContext';
 
-interface IBasket {
+type basketProps = {
     isState: boolean;
     onOpen: () => void;
 }
 
-const Basket = ({isState}:IBasket) => {
-    const {basket, removeFromBasket} = useBasket();
+const Basket = ({isState}:basketProps) => {
+    const {basket, removeFromBasket} = useBasketContext();
 
     return (
         <>
-            {isState && (<>
+            {isState && (
                 <div className={style.wrappperBasket}>
                     {
                         basket.length === 0 ? (<p>Карзина сейчас пустая!</p>) : (basket.map((el) => (
-                            <div className={style.wrapperTovarItem}>
-                                <img className={style.wrapperTovarItem__image} src={el.image} alt={el.title} />
-                                <span className={style.wrapperTovarItem__title}>{el.title}</span>
-                                <span className={style.wrapperTovarItem__price}>Price: {el.price}$</span>
-                                <button className={style.wrapperTovarItem__removeButton} onClick={() => removeFromBasket(el.id)}>Delete</button>
+                            <div className={style.wrapperItem}>
+                                <img className={style.image} src={el.image} alt={el.title} />
+                                <span className={style.title}>{el.title}</span>
+                                <span className={style.price}>Price: {el.price}$</span>
+                                <button className={style.removeButton} onClick={() => removeFromBasket(el.id)}>Delete</button>
                             </div>
                         )))
                     }
                 </div>
-            </>)}
+            )}
         </>    
     )
 }

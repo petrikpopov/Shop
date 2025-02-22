@@ -1,28 +1,9 @@
-.myHeader {
+.header {
     padding: 20px 0;
     position: relative;
 }
 
-ul {
-    list-style: none;
-}
-
-button {
-    border: none;
-    outline: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-
-    &:hover {
-        color: inherit;
-        text-decoration: none;
-    }
-}
-
-.wrapperContentHeader {
+.content {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,19 +26,19 @@ a {
     align-items: center;
     gap: 60px;
     margin-bottom: 0;
+}
 
-    .listItem {
-        position: relative;
-        cursor: pointer;
-        font-size: 17px;
-        font-weight: 400;
+.listItem {
+    position: relative;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 400;
+    transition: .3s;
+    z-index: 999;
+
+    &:hover {
         transition: .3s;
-        z-index: 999;
-
-        &:hover {
-            transition: .3s;
-            transform: scale(1.1);
-        }
+        transform: scale(1.1);
     }
 }
 
@@ -71,22 +52,22 @@ a {
         align-items: center;
         gap: 5px;
     }
+}
 
-    &__profileIcon {
-        width: 25px;
-    }
+.profileIcon {
+    width: 25px;
+}
 
-    &__shoppingСart {
-        width: 30px;
-        cursor: pointer;
+.shoppingСard {
+    width: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    left: 0;
+
+    &:hover {
+        transform: rotate(-13deg);
         transition: 0.3s;
-        position: relative;
-        left: 0;
-
-        &:hover {
-            transform: rotate(-13deg);
-            transition: 0.3s;
-            left: 3px;
-        }
+        left: 3px;
     }
 }

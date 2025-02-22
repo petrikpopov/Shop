@@ -3,32 +3,31 @@ import Footer from '../Footer/footer';
 import { BasketProvider } from '../Context/BasketContext';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Riple } from "react-loading-indicators";
-import load from '../Loader/loader.module.scss'
+import Loader from "../Loader/loader";
 import { Link } from "react-router-dom";
 import ManItem from '../Cards/CardItem/cardManItem';
 import style from '../Cards/CardItem/cardItem.module.scss'
 
-interface IRating {
+type RatingProduct = {
     rate:number,
     count:number
 }
 
-interface IMan {
+type ManProductsData = {
     id:number,
     title:string,
     price:number,
     description:string,
     category:string,
     image:string
-    rating:IRating
+    rating:RatingProduct
 }
 
 const ManPage = () => {
-    const [data, setData] = useState<IMan[]>([]);
+    const [data, setData] = useState<ManProductsData[]>([]);
     const [loader, setLoader] = useState(true);
     useEffect(() => {
-        axios.get<IMan[]>("https://fakestoreapi.com/products/category/men's%20clothing")
+        axios.get<ManProductsData[]>("https://fakestoreapi.com/products/category/men's%20clothing")
         .then(response => {
             setData(response.data);
             setLoader(false);
@@ -36,17 +35,19 @@ const ManPage = () => {
     },[])
 
     if(loader) {
-        return <div className={load.wrapperLoader}><Riple color="#32cd32" size="medium" text="Loading" textColor="" style={{position:'absolute', top: '50%', left:'50%', transform: 'translate(-50%, -50%)' }}/></div>
+        return (
+            <Loader/>
+        )
     }
 
-    return (<>
+    return (
         <BasketProvider>
             <Header></Header>
             <main>
                 <div className={style.cardItemWrapper}>
                     {
-                        data.map((el, key) => (
-                            <Link key={key} to={`/card/${el.title}`} state={{el}}>
+                        data.map((el) => (
+                            <Link key={el.id} to={`/card/${el.title}`} state={{el}}>
                                 <ManItem image={el.image} title={el.title} description={el.description} price={el.price}></ManItem>
                             </Link>
                         ))
@@ -55,7 +56,7 @@ const ManPage = () => {
             </main>
             <Footer></Footer>
         </BasketProvider>
-    </>)
+    )
 }
 
 export default ManPage;

@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import style from './cardItem.module.scss'
 
-interface IMan {
+type MenProductCardProps = {
     image:string,
     title:string,
     description:string,
     price:number
 }
 
-const ManItem = ({image, title, description, price}:IMan) => {
+const MenProductCard = ({image, title, description, price}:MenProductCardProps) => {
     const [isExpander, setIsExpander] = useState(false);
 
     const showTogleDescription = (e:React.MouseEvent) => {
@@ -17,27 +17,27 @@ const ManItem = ({image, title, description, price}:IMan) => {
         setIsExpander(!isExpander);
     }
     
-    return (<>
+    return (
         <div className={style.cardItem}>
-            <img className={style.cardItem__image} src={image} alt={title} />
-            <p className={style.cardItem__title}>{title}</p>
+            <img className={style.image} src={image} alt={title} />
+            <p className={style.title}>{title}</p>
             {
                isExpander ? description : description.length >= 120 ? `${description.slice(0, 120)}...` : description
             }
             {
                 description.length >= 120 && (<>
-                    <button className={style.cardItem__togleDescription} onClick={showTogleDescription}>
+                    <button className={style.togleDescription} onClick={showTogleDescription}>
                         {
                             isExpander ? 'Скрыть' : 'Показать'
                         }
                     </button>
                 </>)
             }
-            <div className={style.cardItem__wrapperPriceBy}>
-                <span className={style.cardItem__price}>Price: {price}$</span>
+            <div className={style.wrapperPrice}>
+                <span className={style.price}>Price: {price}$</span>
             </div>
         </div>
-    </>)
+    )
 }
 
-export default ManItem;
+export default MenProductCard;

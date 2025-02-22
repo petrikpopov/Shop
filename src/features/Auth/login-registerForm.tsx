@@ -71,8 +71,6 @@ const LoginRegistre = ({stateForm, isLoginSeccuses, onClose}:IFormRegisterProps)
 
         onClose();
     }
-
-    console.log(userData);
     
     return (<>
         {stateForm && (
