@@ -30,6 +30,7 @@ const ManPage = () => {
         axios.get<ManProductsData[]>("https://fakestoreapi.com/products/category/men's%20clothing")
         .then(response => {
             setData(response.data);
+        }).finally(() => {
             setLoader(false);
         });
     },[])

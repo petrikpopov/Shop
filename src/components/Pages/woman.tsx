@@ -30,6 +30,7 @@ const WomanPage = () => {
     useEffect(() => {
         axios.get<WomanProductsData[]>("https://fakestoreapi.com/products/category/women's%20clothing").then(response=>{
             setWomanClothes(response.data);
+        }).finally(() => {
             isLoading(false);
         })
     },[])

@@ -31,6 +31,7 @@ const ElectronicsPage = () => {
         axios.get<ElectronicProductsData[]>("https://fakestoreapi.com/products")
         .then(response => {
             setData(response.data)
+        }).finally(() => {
             setLoad(false);
         });
     },[])

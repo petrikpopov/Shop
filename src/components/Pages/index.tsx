@@ -28,6 +28,7 @@ const IndexPage = () => {
     useEffect(() => {
         axios.get<ProductData[]>('https://fakestoreapi.com/products').then(response => {
             setResult(response.data);
+        }).finally(() => {
             isLoading(false);
         })
     },[]);
