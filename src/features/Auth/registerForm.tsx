@@ -45,20 +45,20 @@ const Register = () => {
 
     return (
         <UserProvider>
-            <form onSubmit={handleSubmit} method="POST" className={style.wrapperForm__wrapperIputs}>
-                <div className={style.wrapperForm__wrapperIputs__email}>
+            <form onSubmit={handleSubmit} method="POST" className={style.wrapperIputs}>
+                <div className={style.email}>
                     <label>Enter your Email</label>
                     <input type="email" name="email" value={formData.email} required placeholder="Email" onChange={handleChange} />
                 </div>
-                <div className={style.wrapperForm__wrapperIputs__login}>
+                <div className={style.login}>
                     <label>Enter your Login</label>
                     <input type="text" name="login" value={formData.login} placeholder="Login" onChange={handleChange} />
                 </div>
-                <div className={style.wrapperForm__wrapperIputs__password}>
+                <div className={style.password}>
                     <label>Enter your Password</label>
                     <input type="password" name="password" value={formData.password} placeholder="Password" onChange={handleChange} />
                 </div>
-                <button type="submit" className={style.wrapperForm__btn}>Register</button>
+                <button type="submit" className={style.btn}>Register</button>
             </form>
         </UserProvider>
     );

@@ -71,7 +71,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <Basket isState={isOpenBasket} onOpen={OpenBasket}></Basket>
+            <Basket isState={isOpenBasket} onOpen={OpenBasket} onClose={OpenBasket}></Basket>
         </header>
         <LoginRegistre stateForm={isOpenForm} isLoginSeccuses={handleLogout} onClose={OnCLoseForm}/>
     </>)

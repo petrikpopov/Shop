@@ -1,3 +1,20 @@
+.mainWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+
+    &.active {
+        transform: scale(1);
+    }
+}
+
 .wrappperBasket {
     display: flex;
     flex-direction: column;
@@ -5,8 +22,9 @@
     max-height: 526px;
     overflow: scroll;
     top: 70px;
-    right: 0;
+    left: 49.5%;
     position: absolute;
+    transform: translateX(49.5%);
     min-height: 80px;
     min-width: 400px;
     padding: 20px;

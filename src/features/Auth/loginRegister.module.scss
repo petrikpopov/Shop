@@ -1,8 +1,22 @@
-.wrapperForm {
+.mainWrapper {
     position: fixed;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+
+    &.active {
+        transform: scale(1);
+    }
+}
+
+.wrapperForm {
     display: flex;
     flex-direction: column;
     padding: 30px;
@@ -12,77 +26,69 @@
     z-index: 10;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
-    &__typeOperationClose {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
+}
 
-        &__typeOperation {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            
-            &__signIn,
-            &__signUp {
-                font-weight: 700;
-                font-size: 24px;
-                cursor: pointer;
-            }
-        }
-    }
+.typeOperationClose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-    &__wrapperIputs {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+.typeOperation {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
 
-        &__email,
-        &__login,
-        &__password {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+.signIn,
+.signUp {
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+}
 
-            input {
-                padding: 6px;
-                border: none;
-                border-radius: 10px;
-            }
-        }
-    }
+.wrapperIputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-    &__btn {
+.email,
+.login,
+.password {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    input {
+        padding: 6px;
         border: none;
-        outline: none;
-        padding: 10px;
-        background-color: rgb(16, 121, 192);
-        font-size: 15px;
-        font-weight: 500;
-        color: white;
-        margin-top: 20px;
-        border-radius: 20px;
-        transition: 0.3s;
-
-        &:hover {
-            background-color: rgb(14, 100, 157);
-            transition: 0.3s;
-        }
-    }
-
-    .btn-close {
-        position: absolute;
-        right: 0;
+        border-radius: 10px;
     }
 }
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 5;
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px;
+    background-color: rgb(16, 121, 192);
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    margin-top: 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: rgb(14, 100, 157);
+        transition: 0.3s;
+    }
+}
+
+.btn-close {
+    position: absolute;
+    right: 0;
 }
 
 .activeButton {

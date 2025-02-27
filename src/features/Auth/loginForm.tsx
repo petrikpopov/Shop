@@ -38,16 +38,16 @@ const Login = () => {
 
     return (
         <UserProvider>
-            <form onSubmit={handleSubmit} method='POST' className={style.wrapperForm__wrapperIputs}>
-                <div className={style.wrapperForm__wrapperIputs__login}>
+            <form onSubmit={handleSubmit} method='POST' className={style.wrapperIputs}>
+                <div className={style.login}>
                     <label>Enter your Login</label>
                     <input type="text" name='login' value={formData.login} placeholder="Login" onChange={handleChange}/>
                 </div>
-                <div className={style.wrapperForm__wrapperIputs__password}>
+                <div className={style.password}>
                     <label>Enter your Password</label>
                     <input type="password" name='password' value={formData.password} placeholder="Password" onChange={handleChange}/>
                 </div>
-                <button type="submit" className={style.wrapperForm__btn}>Login</button>
+                <button type="submit" className={style.btn}>Login</button>
             </form>
         </UserProvider>
     )
