@@ -1,36 +1,56 @@
-// type UserModel = {
-//     email:string;
-//     login:string;
-//     password:string;
-// }
+import style from './loginRegister.module.scss';
+import { useState } from "react";
+import { useUserContext } from "../../components/Context/UserContext";
+import { UserProvider } from '../../components/Context/UserContext';
 
-// const Login = () => {
+const Login = () => {
 
-//     const handleSubmit = (e:React.FormEvent) => {
-//         e.preventDefault();
-    
-//         const user = userData.find((user) => user.login === login && user.password === password);
-//         if(user) {
-//             alert(`Welcome dear, ${user.login}!`);
-//         } else {
-//             alert(`Invalid email or password.!`);
-//             return;
-//         }
-//     }
+    const { loginUser } = useUserContext();
+    const [formData, setFormData] = useState(
+        { login: '', password: '' }
+    );
 
-//     return (
-//         <form onSubmit={handleSubmit} method='POST' className={style.wrapperForm__wrapperIputs}>
-//             <div className={style.wrapperForm__wrapperIputs__login}>
-//                 <label>Enter your Login</label>
-//                 <input type="text" name='login' value={formData.login} placeholder="Login" onChange={handleChange}/>
-//             </div>
-//             <div className={style.wrapperForm__wrapperIputs__password}>
-//                 <label>Enter your Password</label>
-//                 <input type="password" name='password' value={formData.password} placeholder="Password" onChange={handleChange}/>
-//             </div>
-//             <button type="submit" className={style.wrapperForm__btn}>{action}</button>
-//         </form>
-//     )
-// }
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
 
-// export default Login;
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const { login, password } = formData;
+
+        if (!login || !password) {
+            alert('Введите email и пароль!');
+            return;
+        }
+
+        const success = loginUser(login, password);
+        if (success) {
+            alert('Вы успешно вошли!');
+        } else {
+            alert('Неверный email или пароль!');
+        }
+    };
+
+    return (
+        <UserProvider>
+            <form onSubmit={handleSubmit} method='POST' className={style.wrapperForm__wrapperIputs}>
+                <div className={style.wrapperForm__wrapperIputs__login}>
+                    <label>Enter your Login</label>
+                    <input type="text" name='login' value={formData.login} placeholder="Login" onChange={handleChange}/>
+                </div>
+                <div className={style.wrapperForm__wrapperIputs__password}>
+                    <label>Enter your Password</label>
+                    <input type="password" name='password' value={formData.password} placeholder="Password" onChange={handleChange}/>
+                </div>
+                <button type="submit" className={style.wrapperForm__btn}>Login</button>
+            </form>
+        </UserProvider>
+    )
+}
+
+export default Login;
