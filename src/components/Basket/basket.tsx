@@ -2,13 +2,13 @@
 import style from './basket.module.scss';
 import { useBasketContext } from '../Context/BasketContext';
 
-type basketProps = {
+type BasketProps = {
     isState: boolean;
     onOpen: () => void;
     onClose: () => void;
 }
 
-const Basket = ({isState, onClose}:basketProps) => {
+const Basket = ({isState, onClose}:BasketProps) => {
     const {basket, removeFromBasket} = useBasketContext();
 
     return (

@@ -17,7 +17,7 @@ const IndexProductCard = ({image,title, category, description, price}:IndexProdu
     const showTogleDescription = (e:React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        setIsExpander(!isExpander);
+        setIsExpander(prev => !prev);
     }
 
     return (

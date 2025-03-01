@@ -5,21 +5,22 @@ type ChildrenMenuCategories = {
     categories:string[]
 }
 
-const ChildrenMenu = () => {
-    const data:ChildrenMenuCategories = {
-        categories: [
-            "Игрушки",
-            "Школьная форма",
-            "Спортивная одежда",
-            "Куртки",
-            "Шапки и перчатки",
-            "Обувь",
-            "Книги",
-            "Рюкзаки",
-            "Пижамы",
-            "Комбинезоны"
-        ]
-    }    
+const data:ChildrenMenuCategories = {
+    categories: [
+        "Игрушки",
+        "Школьная форма",
+        "Спортивная одежда",
+        "Куртки",
+        "Шапки и перчатки",
+        "Обувь",
+        "Книги",
+        "Рюкзаки",
+        "Пижамы",
+        "Комбинезоны"
+    ]
+}  
+
+const ChildrenMenu = () => {  
     return (
         <div className={style.wrappperDdropDownBlock}>
             {

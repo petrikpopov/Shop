@@ -1,7 +1,7 @@
 import style from './addToBasketButton.module.scss'
 import { useBasketContext } from '../Context/BasketContext';
 
-type cardProps = {
+type СardProps = {
     id:number
     image:string;
     title:string;
@@ -10,7 +10,7 @@ type cardProps = {
     price:number;
 }
 
-const AddToBasketButton = ({id, image, title, category, description, price}:cardProps) => {
+const AddToBasketButton = ({id, image, title, category, description, price}:СardProps) => {
 
     const {addToBasket} = useBasketContext();
 

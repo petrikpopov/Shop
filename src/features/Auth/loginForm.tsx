@@ -30,7 +30,7 @@ const Login = () => {
 
         const success = loginUser(login, password);
         if (success) {
-            alert('Вы успешно вошли!');
+            alert(`Вы успешно вошли как: ${login}`);
         } else {
             alert('Неверный email или пароль!');
         }

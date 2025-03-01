@@ -1,10 +1,10 @@
 import style from './header.module.scss';
 import { Link } from "react-router-dom";
-import LoginRegistre from '../../features/Auth/login-registerForm';
+import LoginRegistre from '../../Features/Auth/login-registerForm';
 import Basket from '../Basket/basket';
 import { useState } from 'react';
-import WomanMenu from '../../features/Products/womanMenu';
-import ManMenu from '../../features/Products/manMenu';
+import WomanMenu from '../../Features/Products/womanMenu';
+import ManMenu from '../../Features/Products/manMenu';
 import profilIcon from '../../icons/profilIcon.svg';
 import shopIcon from '../../icons/shoppingСart.svg'
 

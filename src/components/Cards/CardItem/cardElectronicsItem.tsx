@@ -16,7 +16,7 @@ const ElectronicsProductCard = ({id, image, title, category, description, price}
     const [isExpander, setIsExpander] = useState(false);
 
     const showTogleDescription = () => {
-        setIsExpander(!isExpander);
+        setIsExpander(prev => !prev);
     }
 
     return (

@@ -14,7 +14,7 @@ const MenProductCard = ({image, title, description, price}:MenProductCardProps) 
     const showTogleDescription = (e:React.MouseEvent) => {
         e.preventDefault()
         e.stopPropagation();
-        setIsExpander(!isExpander);
+        setIsExpander(prev => !prev);
     }
     
     return (

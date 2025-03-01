@@ -37,10 +37,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         const user = userData.find((user) => user.login === login && user.password === password);
         if(user) {
             setCurrentUser(user);
-            alert(`Welcome dear, ${user.login}!`);
             return true;
         } else {
-            alert(`Invalid email or password.!`);
             return false;
         }
     }
