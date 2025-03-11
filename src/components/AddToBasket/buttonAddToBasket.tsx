@@ -1,20 +1,33 @@
-import style from './addToBasketButton.module.scss'
-import { useBasketContext } from '../Context/BasketContext';
+import style from "./addToBasketButton.module.scss";
+import { useBasketContext } from "../Context/BasketContext";
 
 type СardProps = {
-    id:number
-    image:string;
-    title:string;
-    category:string;
-    description:string;
-    price:number;
-}
+  id: number;
+  image: string;
+  title: string;
+  category: string;
+  description: string;
+  price: number;
+};
 
-const AddToBasketButton = ({id, image, title, category, description, price}:СardProps) => {
+export const AddToBasketButton = ({
+  id,
+  image,
+  title,
+  category,
+  description,
+  price,
+}: СardProps) => {
+  const { addToBasket } = useBasketContext();
 
-    const {addToBasket} = useBasketContext();
-
-    return (<button onClick={() => addToBasket({id,image,title, category, description, price})} className={style.buttonBY}>By</button>)
-}
-
-export default AddToBasketButton;
+  return (
+    <button
+      onClick={() =>
+        addToBasket({ id, image, title, category, description, price })
+      }
+      className={style.buttonBY}
+    >
+      By
+    </button>
+  );
+};

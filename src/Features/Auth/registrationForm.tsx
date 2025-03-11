@@ -1,11 +1,16 @@
-import style from "./loginRegister.module.scss";
 import { useState } from "react";
+import style from "./loginRegister.module.scss";
 import { useUserContext } from "../../components/Context/UserContext";
 import { UserProvider } from "../../components/Context/UserContext";
 
-export const Login = () => {
-  const { loginUser } = useUserContext();
-  const [formData, setFormData] = useState({ login: "", password: "" });
+export const Registration = () => {
+  const { addUser } = useUserContext();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    login: "",
+    password: "",
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -18,19 +23,24 @@ export const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { login, password } = formData;
+    const { email, login, password } = formData;
 
-    if (!login || !password) {
-      alert("Введите email и пароль!");
+    const newUser = { email, login, password };
+
+    if (!email || !login || !password) {
+      alert("Пользователь не зарегистрирован - заполните поля!");
       return;
     }
 
-    const success = loginUser(login, password);
-    if (success) {
-      alert(`Вы успешно вошли как: ${login}`);
-    } else {
-      alert("Неверный email или пароль!");
-    }
+    alert("Пользователь зарегистрирован!");
+
+    addUser(newUser);
+
+    setFormData({
+      email: "",
+      login: "",
+      password: "",
+    });
   };
 
   return (
@@ -40,6 +50,17 @@ export const Login = () => {
         method="POST"
         className={style.wrapperIputs}
       >
+        <div className={style.email}>
+          <label>Enter your Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            required
+            placeholder="Email"
+            onChange={handleChange}
+          />
+        </div>
         <div className={style.login}>
           <label>Enter your Login</label>
           <input
@@ -61,7 +82,7 @@ export const Login = () => {
           />
         </div>
         <button type="submit" className={style.btn}>
-          Login
+          Register
         </button>
       </form>
     </UserProvider>

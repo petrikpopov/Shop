@@ -1,32 +1,44 @@
-
-import style from './basket.module.scss';
-import { useBasketContext } from '../Context/BasketContext';
+import style from "./basket.module.scss";
+import { useBasketContext } from "../Context/BasketContext";
+import clsx from "clsx";
 
 type BasketProps = {
-    isState: boolean;
-    onOpen: () => void;
-    onClose: () => void;
-}
+  isOpen: boolean;
+  onClose: () => void;
+};
 
-const Basket = ({isState, onClose}:BasketProps) => {
-    const {basket, removeFromBasket} = useBasketContext();
+export const Basket = ({ isOpen, onClose }: BasketProps) => {
+  const { basket, removeFromBasket } = useBasketContext();
 
-    return (
-        <div className={`${style.mainWrapper} ${isState ? style.active : ''}`} onClick={onClose}>
-            <div className={style.wrappperBasket} onClick={(e) => {e.stopPropagation()}}>
-                {
-                    basket.length === 0 ? (<p>Карзина сейчас пустая!</p>) : (basket.map((el) => (
-                        <div className={style.wrapperItem}>
-                            <img className={style.image} src={el.image} alt={el.title} />
-                            <span className={style.title}>{el.title}</span>
-                            <span className={style.price}>Price: {el.price}$</span>
-                            <button className={style.removeButton} onClick={() => removeFromBasket(el.id)}>Delete</button>
-                        </div>
-                    )))
-                }
+  return (
+    <div
+      className={clsx(style.mainWrapper, { [style.active]: isOpen })}
+      onClick={onClose}
+    >
+      <div
+        className={style.wrappperBasket}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        {basket.length === 0 ? (
+          <p>Карзина сейчас пустая!</p>
+        ) : (
+          basket.map((el) => (
+            <div className={style.wrapperItem}>
+              <img className={style.image} src={el.image} alt={el.title} />
+              <span className={style.title}>{el.title}</span>
+              <span className={style.price}>Price: {el.price}$</span>
+              <button
+                className={style.removeButton}
+                onClick={() => removeFromBasket(el.id)}
+              >
+                Delete
+              </button>
             </div>
-        </div>    
-    )
-}
-
-export default Basket;
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
