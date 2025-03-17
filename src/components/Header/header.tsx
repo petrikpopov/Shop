@@ -45,9 +45,7 @@ export const Header = () => {
               >
                 <Link to="/woman">Woman</Link>
                 {isHoverForMenu === "woman" && (
-                  <>
-                    <WomanMenu />
-                  </>
+                  <WomanMenu />
                 )}
               </li>
               <li
@@ -57,9 +55,7 @@ export const Header = () => {
               >
                 <Link to="/man">Man</Link>
                 {isHoverForMenu === "man" && (
-                  <>
-                    <ManMenu />
-                  </>
+                 <ManMenu />
                 )}
               </li>
               <li
