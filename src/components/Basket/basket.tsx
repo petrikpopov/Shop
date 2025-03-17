@@ -1,5 +1,5 @@
 import style from "./basket.module.scss";
-import { useBasketContext } from "../Context/BasketContext";
+import { useBasketContext } from "../Context/basketContext";
 import clsx from "clsx";
 
 type BasketProps = {

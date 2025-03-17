@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from "./loginRegister.module.scss";
-import { useUserContext } from "../../components/Context/UserContext";
-import { UserProvider } from "../../components/Context/UserContext";
+import { useUserContext } from "../../components/Context/userContext";
+import { UserProvider } from "../../components/Context/userContext";
 
 export const Registration = () => {
   const { addUser } = useUserContext();

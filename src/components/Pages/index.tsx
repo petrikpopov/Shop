@@ -3,31 +3,33 @@ import { IndexProductCard } from "../Cards/CardItem/cardIndexItem";
 import { Header } from "../Header/header";
 import style from "../Cards/CardItem/cardItem.module.scss";
 import { Footer } from "../Footer/footer";
-import { BasketProvider } from "../Context/BasketContext";
+import { BasketProvider } from "../Context/basketContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Loader } from "../Loader/loader";
 
-type ProductData = {
+type RatingProduct = {
+  rate: number;
+  count: number;
+}
+
+type HomeProductData = {
   id: number;
   title: string;
   price: number;
   description: string;
   category: string;
   image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
+  rating: RatingProduct
 };
 
 export const IndexPage = () => {
-  const [data, setResult] = useState<ProductData[]>([]);
+  const [data, setResult] = useState<HomeProductData[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get<ProductData[]>("https://fakestoreapi.com/products")
+      .get<HomeProductData[]>("https://fakestoreapi.com/products")
       .then((response) => {
         setResult(response.data);
       })

@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-interface ICard {
+type CardModel = {
   id: number;
   image: string;
   title: string;
@@ -10,9 +10,9 @@ interface ICard {
   price: number;
 }
 
-interface BasketContextType {
-  basket: ICard[];
-  addToBasket: (item: ICard) => void;
+type BasketContextType = {
+  basket: CardModel[];
+  addToBasket: (item: CardModel) => void;
   removeFromBasket: (id: number) => void;
 }
 
@@ -27,10 +27,10 @@ export const useBasketContext = () => {
 };
 
 export const BasketProvider = ({ children }: { children: ReactNode }) => {
-  const [basket, setBasket] = useState<ICard[]>([]);
+  const [basket, setBasket] = useState<CardModel[]>([]);
   const [showAnimationForToavr, setShowAnimationForToavr] = useState(false);
 
-  const addToBasket = (item: ICard) => {
+  const addToBasket = (item: CardModel) => {
     const isNotInBasket = basket.find(
       (basketItem) => basketItem.id === item.id,
     );

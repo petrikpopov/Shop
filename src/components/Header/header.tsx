@@ -8,7 +8,7 @@ import { ManMenu } from "../../Features/Products/manMenu";
 import profilIcon from "../../icons/profilIcon.svg";
 import shopIcon from "../../icons/shoppingСart.svg";
 
-type ManuType = "" | "woman" | "man" | "electronics";
+type MenuType = "" | "woman" | "man" | "electronics";
 
 export const Header = () => {
   const [isOpenBasket, setOpenBasket] = useState(false);
@@ -20,8 +20,8 @@ export const Header = () => {
   const [isOnLogin, setOnLogin] = useState(false);
   const handleLogout = () => setOnLogin(true);
 
-  const [isHoverForMenu, setHoverForMenu] = useState<ManuType>("");
-  const onHoverItemShow = (menuType: ManuType) => {
+  const [isHoverForMenu, setHoverForMenu] = useState<MenuType>("");
+  const onHoverItemShow = (menuType: MenuType) => {
     setHoverForMenu(menuType);
   };
 

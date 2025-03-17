@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./loginRegister.module.scss";
 import { Login } from "./loginForm";
 import { Registration } from "./registrationForm";
-import { UserProvider } from "../../components/Context/UserContext";
+import { UserProvider } from "../../components/Context/userContext";
 import clsx from "clsx";
 
 type FormRegistrationProps = {

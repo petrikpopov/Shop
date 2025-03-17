@@ -1,15 +1,15 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
-interface IUser {
+type UserModel = {
   email: string;
   login: string;
   password: string;
 }
 
-interface UserContextType {
-  userData: IUser[];
-  currentUser: IUser | null;
-  addUser: (user: IUser) => void;
+type UserContextType = {
+  userData: UserModel[];
+  currentUser: UserModel | null;
+  addUser: (user: UserModel) => void;
   loginUser: (login: string, password: string) => boolean;
 }
 
@@ -26,10 +26,10 @@ export const useUserContext = () => {
 };
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [userData, setUserData] = useState<IUser[]>([]);
-  const [currentUser, setCurrentUser] = useState<IUser | null>(null);
+  const [userData, setUserData] = useState<UserModel[]>([]);
+  const [currentUser, setCurrentUser] = useState<UserModel | null>(null);
 
-  const addUser = (user: IUser) => {
+  const addUser = (user: UserModel) => {
     setUserData((prev) => [...prev, user]);
   };
 

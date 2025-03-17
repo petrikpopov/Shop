@@ -1,6 +1,6 @@
 import { Header } from "../Header/header";
 import { Footer } from "../Footer/footer";
-import { BasketProvider } from "../Context/BasketContext";
+import { BasketProvider } from "../Context/basketContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Loader } from "../Loader/loader";

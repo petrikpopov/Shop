@@ -1,6 +1,6 @@
 import { Header } from "../Header/header";
 import { Footer } from "../Footer/footer";
-import { BasketProvider } from "../Context/BasketContext";
+import { BasketProvider } from "../Context/basketContext";
 import { useEffect, useState } from "react";
 import { WomanProductCard } from "../Cards/CardItem/cardWomanItem";
 import style from "../Cards/CardItem/cardItem.module.scss";

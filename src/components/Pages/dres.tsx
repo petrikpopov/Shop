@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Header } from "../Header/header";
-import { BasketProvider } from "../Context/BasketContext";
+import { BasketProvider } from "../Context/basketContext";
 import { Footer } from "../Footer/footer";
 
 export const DresPage = () => {

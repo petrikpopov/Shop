@@ -3,7 +3,7 @@ import { Header } from "../Header/header";
 import { Loader } from "../Loader/loader";
 import style from "../Cards/CardItem/cardItem.module.scss";
 import { Footer } from "../Footer/footer";
-import { BasketProvider } from "../Context/BasketContext";
+import { BasketProvider } from "../Context/basketContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { ElectronicsProductCard } from "../Cards/CardItem/cardElectronicsItem";

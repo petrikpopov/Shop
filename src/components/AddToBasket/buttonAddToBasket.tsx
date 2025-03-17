@@ -1,5 +1,5 @@
 import style from "./addToBasketButton.module.scss";
-import { useBasketContext } from "../Context/BasketContext";
+import { useBasketContext } from "../Context/basketContext";
 
 type СardProps = {
   id: number;

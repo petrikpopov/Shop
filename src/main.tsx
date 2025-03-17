@@ -11,7 +11,7 @@ root.render(
 );
 
 // createRoot(document.getElementById('root')!).render( // сторого уверен, что document.getElementById('root') не null
-//   <StrictMode>
+//   <React.StrictMode>
 //     <App />
-//   </StrictMode>,
+//   </React.StrictMode>,
 // )
