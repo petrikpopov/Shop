@@ -1,10 +1,10 @@
 import "./App.css";
-import { IndexPage } from "./components/Pages";
-import { WomanPage } from "./components/Pages/woman";
-import { ManPage } from "./components/Pages/man";
-import { DresPage } from "./components/Pages/dres";
+import { IndexPage } from "./components/Pages/Index";
+import { WomanPage } from "./components/Pages/Woman";
+import { ManPage } from "./components/Pages/Man";
+import { DresPage } from "./components/Pages/Dres";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CardsDetails } from "./components/Pages/pageDetails";
+import { CardsDetails } from "./components/Pages/PageDetails";
 import { ElectronicsPage } from "./components/Pages/electronics";
 
 function App() {

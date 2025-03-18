@@ -3,13 +3,14 @@ import { BasketProvider } from "../Context/basketContext";
 import { Header } from "../Header/header";
 import { Footer } from "../Footer/footer";
 import { GoToBackButton } from "../goToBackButton";
-import { AddToBasketButton } from "../AddToBasket/buttonAddToBasket";
+import { AddToBasketButton } from "../AddToBasketButton/AddToBasketButton";
 import style from "../Cards/CardItem/cardsDetails.module.scss";
+import { LocationState } from "../../types/Product/productTypes";
 
 export const CardsDetails = () => {
   const location = useLocation();
-  const { el } = location.state;
-
+  const { el }:LocationState = location.state;
+ 
   return (
     <BasketProvider>
       <Header />

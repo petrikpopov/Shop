@@ -1,14 +1,14 @@
 import style from "./header.module.scss";
 import { Link } from "react-router-dom";
-import { LoginRegistration } from "../../Features/Auth/loginRegistrationForm";
+import { LoginRegistration } from "../../features/Auth/loginRegistrationForm"
 import { Basket } from "../Basket/basket";
 import { useState } from "react";
-import { WomanMenu } from "../../Features/Products/womanMenu";
-import { ManMenu } from "../../Features/Products/manMenu";
+import { WomanMenu } from "../../features/Products/womanMenu";
+import { ManMenu } from "../../features/Products/manMenu";
 import profilIcon from "../../icons/profilIcon.svg";
 import shopIcon from "../../icons/shoppingСart.svg";
 
-type MenuType = "" | "woman" | "man" | "electronics";
+type MenuType = "woman" | "man" | "electronics";
 
 export const Header = () => {
   const [isOpenBasket, setOpenBasket] = useState(false);
@@ -20,13 +20,13 @@ export const Header = () => {
   const [isOnLogin, setOnLogin] = useState(false);
   const handleLogout = () => setOnLogin(true);
 
-  const [isHoverForMenu, setHoverForMenu] = useState<MenuType>("");
+  const [isHoverForMenu, setHoverForMenu] = useState<MenuType | null>(null);
   const onHoverItemShow = (menuType: MenuType) => {
     setHoverForMenu(menuType);
   };
 
   const onHoverItemHiden = () => {
-    setHoverForMenu("");
+    setHoverForMenu(null);
   };
 
   return (
@@ -64,7 +64,6 @@ export const Header = () => {
                 className={style.listItem}
               >
                 <Link to="/electronics">Jewelery</Link>
-                {isHoverForMenu === "electronics" && <></>}
               </li>
             </ul>
             <div className={style.wrapperRegistrationLogin}>
@@ -76,32 +75,28 @@ export const Header = () => {
                 alt="shoppingСard-icon"
               />
               {!isOnLogin ? (
-                <>
-                  <button
-                    onClick={() => setOpenForm(!isOpenForm)}
-                    type="button"
-                    className="btn btn-primary profileButton"
-                    data-toggle="modal"
-                    data-target="#exampleModalCenter"
-                  >
-                    <img
-                      className={style.profileIcon}
-                      src={profilIcon}
-                      alt="profilIcon"
-                    />
-                    Profile
-                  </button>
-                </>
+                <button
+                  onClick={() => setOpenForm(!isOpenForm)}
+                  type="button"
+                  className="btn btn-primary profileButton"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter"
+                >
+                  <img
+                    className={style.profileIcon}
+                    src={profilIcon}
+                    alt="profilIcon"
+                  />
+                  Profile
+                </button>
               ) : (
-                <>
-                  <button
-                    onClick={() => setOnLogin(false)}
-                    type="button"
-                    className="btn btn-link"
-                  >
-                    Log Out
-                  </button>
-                </>
+                <button
+                  onClick={() => setOnLogin(false)}
+                  type="button"
+                  className="btn btn-link"
+                >
+                  Log Out
+                </button>
               )}
             </div>
           </div>

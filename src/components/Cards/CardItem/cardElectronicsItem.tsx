@@ -1,6 +1,6 @@
 import { ToggleDescription } from "./toggleDescriptionBlock";
 import style from "./cardItem.module.scss";
-import { AddToBasketButton } from "../../AddToBasket/buttonAddToBasket";
+import { AddToBasketButton } from "../../AddToBasketButton/AddToBasketButton";
 
 type ElectronicsProductCardProps = {
   id: number;

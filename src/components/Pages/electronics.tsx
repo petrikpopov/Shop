@@ -7,29 +7,15 @@ import { BasketProvider } from "../Context/basketContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { ElectronicsProductCard } from "../Cards/CardItem/cardElectronicsItem";
-
-type RatingProduct = {
-  rate: number;
-  count: number;
-};
-
-type ElectronicProductsData = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: RatingProduct;
-};
+import { ProductData } from "../../types/Product/productTypes";
 
 export const ElectronicsPage = () => {
-  const [data, setData] = useState<ElectronicProductsData[]>([]);
+  const [data, setData] = useState<ProductData[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get<ElectronicProductsData[]>("https://fakestoreapi.com/products")
+      .get<ProductData[]>("https://fakestoreapi.com/products")
       .then((response) => {
         setData(response.data);
       })

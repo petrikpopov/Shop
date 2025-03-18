@@ -7,29 +7,15 @@ import { BasketProvider } from "../Context/basketContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Loader } from "../Loader/loader";
-
-type RatingProduct = {
-  rate: number;
-  count: number;
-}
-
-type HomeProductData = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: RatingProduct
-};
+import { ProductData } from "../../types/Product/productTypes";
 
 export const IndexPage = () => {
-  const [data, setResult] = useState<HomeProductData[]>([]);
+  const [data, setResult] = useState<ProductData[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get<HomeProductData[]>("https://fakestoreapi.com/products")
+      .get<ProductData[]>("https://fakestoreapi.com/products")
       .then((response) => {
         setResult(response.data);
       })

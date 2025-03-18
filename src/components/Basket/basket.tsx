@@ -25,7 +25,7 @@ export const Basket = ({ isOpen, onClose }: BasketProps) => {
           <p>Карзина сейчас пустая!</p>
         ) : (
           basket.map((el) => (
-            <div className={style.wrapperItem}>
+            <div key={el.id} className={style.wrapperItem}>
               <img className={style.image} src={el.image} alt={el.title} />
               <span className={style.title}>{el.title}</span>
               <span className={style.price}>Price: {el.price}$</span>

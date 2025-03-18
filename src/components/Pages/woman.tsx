@@ -7,29 +7,15 @@ import style from "../Cards/CardItem/cardItem.module.scss";
 import { Link, Outlet } from "react-router-dom";
 import axios from "axios";
 import { Loader } from "../Loader/loader";
-
-type RatingProduct = {
-  rate: number;
-  count: number;
-};
-
-type WomanProductsData = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: RatingProduct;
-};
+import { ProductData } from "../../types/Product/productTypes";
 
 export const WomanPage = () => {
-  const [data, setWomanClothes] = useState<WomanProductsData[]>([]);
+  const [data, setWomanClothes] = useState<ProductData[]>([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get<WomanProductsData[]>(
+      .get<ProductData[]>(
         "https://fakestoreapi.com/products/category/women's%20clothing",
       )
       .then((response) => {
@@ -41,7 +27,7 @@ export const WomanPage = () => {
   }, []);
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader/>;
   }
 
   return (

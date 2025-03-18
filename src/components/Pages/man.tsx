@@ -7,28 +7,14 @@ import { Loader } from "../Loader/loader";
 import { Link } from "react-router-dom";
 import { MenProductCard } from "../Cards/CardItem/cardManItem";
 import style from "../Cards/CardItem/cardItem.module.scss";
-
-type RatingProduct = {
-  rate: number;
-  count: number;
-};
-
-type ManProductsData = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: RatingProduct;
-};
+import { ProductData } from "../../types/Product/productTypes";
 
 export const ManPage = () => {
-  const [data, setData] = useState<ManProductsData[]>([]);
+  const [data, setData] = useState<ProductData[]>([]);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get<ManProductsData[]>(
+      .get<ProductData[]>(
         "https://fakestoreapi.com/products/category/men's%20clothing",
       )
       .then((response) => {
