@@ -1,0 +1,73 @@
+.header {
+  padding: 20px 0;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    transition: 0.3s;
+    transform: scale(1.15);
+  }
+}
+
+.listMenu {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 0;
+}
+
+.listItem {
+  position: relative;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 400;
+  transition: 0.3s;
+  z-index: 2;
+
+  &:hover {
+    transition: 0.3s;
+    transform: scale(1.1);
+  }
+}
+
+.wrapperRegistrationLogin {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.profileIcon {
+  width: 25px;
+}
+
+.shoppingСard {
+  width: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  left: 0;
+
+  &:hover {
+    transform: rotate(-13deg);
+    transition: 0.3s;
+    left: 3px;
+  }
+}

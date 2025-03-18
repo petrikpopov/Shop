@@ -1,0 +1,74 @@
+.mainWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+
+  &.active {
+    transform: scale(1);
+  }
+}
+
+.wrappperBasket {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 526px;
+  overflow: scroll;
+  top: 70px;
+  left: 49.5%;
+  position: absolute;
+  transform: translateX(49.5%);
+  min-height: 80px;
+  min-width: 400px;
+  padding: 20px;
+  z-index: 3;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+}
+
+.wrapperItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image {
+  max-width: 100px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid black;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}

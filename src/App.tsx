@@ -5,7 +5,7 @@ import { ManPage } from "./components/Pages/Man";
 import { DresPage } from "./components/Pages/Dres";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CardsDetails } from "./components/Pages/PageDetails";
-import { ElectronicsPage } from "./components/Pages/electronics";
+import { ElectronicsPage } from "./components/Pages/Electronics";
 
 function App() {
   return (
